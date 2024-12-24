@@ -23,6 +23,6 @@ public class PaginationRequestDTO {
 
     public PaginationRequestDTO(Integer page, Integer pageSize) {
         this.page = Optional.ofNullable(page).orElse(1);
-        this.pageSize = Optional.ofNullable(pageSize).orElse(DEFAULT_PAGE_SIZE);;
+        this.pageSize = Optional.ofNullable(pageSize).orElse(DEFAULT_PAGE_SIZE);
     }
 }
