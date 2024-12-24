@@ -7,11 +7,11 @@ spring:
 
   jpa:
     generate-ddl: ${SPRING_JPA_HIBERNATE_GENERATE_DDL}
+    open-in-view: ${SPRING_JPA_HIBERNATE_OPEN_IN_VIEW}
     hibernate:
       ddl-auto: ${SPRING_JPA_HIBERNATE_DDL_AUTO}
     properties:
       hibernate:
-        dialect: ${SPRING_JPA_HIBERNATE_PROPERTIES_HIBERNATE_DIALECT}
         show_sql: ${SPRING_JPA_HIBERNATE_PROPERTIES_HIBERNATE_SHOW_SQL}
         format_sql: ${SPRING_JPA_HIBERNATE_PROPERTIES_HIBERNATE_FORMAT_SQL}
         use_sql_comments: ${SPRING_JPA_HIBERNATE_PROPERTIES_HIBERNATE_USE_SQL_COMMENTS}
