@@ -18,8 +18,10 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column(nullable = false)
     private String name;
 
+    @Column(length = 1024, nullable = false)
     private String description;
 
     @CreationTimestamp

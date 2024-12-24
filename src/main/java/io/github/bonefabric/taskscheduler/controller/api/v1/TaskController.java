@@ -2,7 +2,9 @@ package io.github.bonefabric.taskscheduler.controller.api.v1;
 
 import io.github.bonefabric.taskscheduler.dto.pagination.PaginationDTO;
 import io.github.bonefabric.taskscheduler.dto.pagination.PaginationRequestDTO;
+import io.github.bonefabric.taskscheduler.dto.task.CreateTaskDTO;
 import io.github.bonefabric.taskscheduler.mapper.PaginationMapper;
+import io.github.bonefabric.taskscheduler.mapper.TaskMapper;
 import io.github.bonefabric.taskscheduler.model.Task;
 import io.github.bonefabric.taskscheduler.service.TaskService;
 import jakarta.validation.Valid;
@@ -20,6 +22,7 @@ public class TaskController {
 
     private final TaskService taskService;
     private final PaginationMapper<Task> paginationMapper;
+    private final TaskMapper taskMapper;
 
     @GetMapping
     public PaginationDTO<Task> list(@Valid PaginationRequestDTO requestDTO) {
@@ -30,5 +33,11 @@ public class TaskController {
     @GetMapping("/{id}")
     public Task get(@PathVariable @DecimalMin("1") long id) {
         return taskService.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Task create(@RequestBody @Valid CreateTaskDTO createTaskDTO) {
+        return taskService.save(taskMapper.map(createTaskDTO));
     }
 }
