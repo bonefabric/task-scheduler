@@ -7,6 +7,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @AllArgsConstructor
 public class TaskService {
@@ -15,5 +17,9 @@ public class TaskService {
 
     public Page<Task> page(int page, int pageSize) {
         return taskRepository.findAll(PageRequest.of(page, pageSize));
+    }
+
+    public Optional<Task> findById(long id) {
+        return taskRepository.findById(id);
     }
 }
