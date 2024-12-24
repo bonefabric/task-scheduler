@@ -5,7 +5,7 @@ import jakarta.validation.constraints.Size;
 import lombok.Getter;
 
 @Getter
-public class CreateTaskDTO {
+public class UpdateTaskDTO {
 
     @NotEmpty
     @Size(min = 1, max = 255)
@@ -14,7 +14,7 @@ public class CreateTaskDTO {
     @Size(max = 1024)
     private final String description;
 
-    public CreateTaskDTO(String name, String description) {
+    public UpdateTaskDTO(String name, String description) {
         this.name = name;
         this.description = description == null ? "" : description;
     }
